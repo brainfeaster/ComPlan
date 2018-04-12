@@ -1,0 +1,49 @@
+<!-- Generated template for the PlannerComponent component -->
+<div>
+  Today : {{currentDate|date:'MM/dd/yyyy'}}
+  <div>
+    <ion-grid>
+      <ion-row>
+        <ion-col col-2 class="timeLabel">
+          9 AM - 11 AM
+        </ion-col>
+        <ion-col col-10>
+          <ion-item>
+          <ion-textarea [readonly]="isReadOnly(9)" type="text" rows="3" class="planText" max-length="3"></ion-textarea>
+        </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-2 class="timeLabel">
+          11 AM - 1 PM
+        </ion-col>
+        <ion-col col-10>
+          <ion-item>
+          <ion-textarea [readonly]="isReadOnly(11)" type="text" rows="3" class="planText" max-length="3"></ion-textarea>
+        </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-2 class="timeLabel">
+          1 PM - 3 PM
+        </ion-col>
+        <ion-col col-10>
+          <ion-item>
+          <ion-textarea [readonly]="isReadOnly(13)" type="text" rows="3" class="planText" max-length="3"></ion-textarea>
+        </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-2 class="timeLabel">
+          3 PM - 5M
+        </ion-col>
+        <ion-col col-10>
+          <ion-item>
+          <ion-textarea [readonly]="isReadOnly(15)" type="text" rows="3" class="planText" max-length="3"></ion-textarea>
+        </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</div>
+
