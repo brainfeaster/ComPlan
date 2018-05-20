@@ -1,20 +1,52 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
 <ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+    <li class=" row ">
+        <h1 class="col s12">
+            Welcome to ComPlan
+        </h1>
+        <p class="col s12">
+            Special way to hanle your multi-task.
+        </p>
+    </li>
+    <li class=" row ">
+        <div class="col s8 ">
+            <input class=" " [(ngModel)]="newtask">
+        </div>
+        <div class="col s4 ">
+            <a class="waves-effect waves-light btn-small left " (click)="addTask()">
+                <i class="fas fa-plus-square "></i> <span class="hide-on-small-only ">Add new </span></a>
+        </div>
+    </li>
+    <li class="row " *ngFor="let task of tasks | reversearray ">
 
+        <div class="col s8 " *ngIf="!task.binker_switch ">
+            <div class="row " style="margin:0px!important;">
+                <div class="col s12 progress progress-bar progress-bar ">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s6">
+                    {{task.name}}
+                </div>
+                <div class="col s6">
+                    <div class="hide-on-small-only ">{{task.eta | minsec}}</div>
+                    <div class="hide-on-med-and-up ">{{task.eta | minsecmobile}}</div>
+                </div>
+            </div>
+        </div>
+        <div class="col s8 " *ngIf="task.binker_switch ">
+            <input class=" " [(ngModel)]="task.name ">
+        </div>
+        <div class="col s4 ">
+            <a class="waves-effect waves-light btn-small left " *ngIf="task.eta==0 ">
+                <i class="far fa-save"></i> <span class="hide-on-small-only ">Save log</span>
+            </a>
+        </div>
+    </li>
+    <!--<li *ngFor="let task of tasks " [ngClass]="{ 'text-white':task.binker_flag && task.binker_switch, 'text-grey':!task.binker_flag && task.binker_switch } ">
+      <div style="width:50% "> {{task.name}} in
+          <span [ngClass]="{ 'text-less':task.eta < 0 , 'text-zero':task.eta==0 , 'text-more':task.eta> 0 }"> {{task.eta | minsec}}
+      </span>
+</div>
+<a class="waves-effect waves-light btn-small"> <i class="fas fa-trash-alt" *ngIf="task.eta == 0"></i> Add new </a>
+</li>-->
+</ul>
