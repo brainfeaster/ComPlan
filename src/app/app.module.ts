@@ -6,6 +6,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { AppComponent } from './app.component';
 import { environment } from '../environments/environment';
+import { NgxWarehouseModule, WarehouseConfig, DRIVER_TYPE } from 'ngx-warehouse';
+
+const config: WarehouseConfig = {
+ driver: DRIVER_TYPE.INDEXEDDB,
+ name: 'Your App',
+ version: 1.0,
+ storeName: 'key_value_pairs', // Should be alphanumeric, with underscores.
+ description: 'A description of your app'
+};
 
 @Pipe({
   name: 'reversearray'
@@ -59,6 +68,7 @@ export class MinSecMobile implements PipeTransform {
     BrowserModule,
     AppRoutingModule,
     CommonModule,
+    NgxWarehouseModule.configureWarehouse(config),
     FormsModule,
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })
   ],
