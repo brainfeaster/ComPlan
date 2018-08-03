@@ -7,6 +7,8 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { AppComponent } from './app.component';
 import { environment } from '../environments/environment';
 import { NgxWarehouseModule, WarehouseConfig, DRIVER_TYPE } from 'ngx-warehouse';
+import { SharedModule } from './shared/shared.module';
+import { CoreModule } from './core/core.module';
 
 const config: WarehouseConfig = {
  driver: DRIVER_TYPE.INDEXEDDB,
@@ -65,6 +67,8 @@ export class MinSecMobile implements PipeTransform {
     ReversePipe
   ],
   imports: [
+    SharedModule.forRoot(),
+    CoreModule,
     BrowserModule,
     AppRoutingModule,
     CommonModule,
