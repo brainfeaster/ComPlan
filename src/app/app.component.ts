@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Task } from './task.model';
+import { Task } from './core/models/task.model';
 import { BrowserModule } from '@angular/platform-browser';
 import * as _ from 'lodash';
 import { Warehouse } from 'ngx-warehouse';
