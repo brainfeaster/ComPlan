@@ -54,6 +54,11 @@ li {
     transform-origin: 0 0;
 }
 
+.mainInput {
+    height: 18px;
+    font-size: 16px;
+}
+
 .progress {
     height: 3px;
     background-color: black;
