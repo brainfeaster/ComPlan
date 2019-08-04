@@ -3,6 +3,11 @@ import { Task } from './core/models/task.model';
 import { BrowserModule } from '@angular/platform-browser';
 import * as _ from 'lodash';
 import { Warehouse } from 'ngx-warehouse';
+import * as $ from 'jquery';
+import { CurrentComponent } from './pages/current/current.component';
+import { HistoryComponent } from './pages/history/history.component';
+import { OfflineService } from './core/offline.service';
+declare var M: any;
 
 @Component({
   selector: 'app-root',
@@ -10,45 +15,48 @@ import { Warehouse } from 'ngx-warehouse';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  tasks: Task[] = [];
-  newtask = '';
-  timer;
-  maxETA = 60;
-  constructor(public warehouse: Warehouse) {
+  
+  constructor(public warehouse: Warehouse,
+    public  offsvc: OfflineService) {
     /*for (let index = 0; index < 5; index++) {
       this.tasks.push(new Task(index.toString()));
     }*/
   }
   ngOnInit() {
-
-    const testObject: any = {
-      anArray: [
-        'first string',
-        'another string',
-        'and even one more'
-      ],
-      aNumber: 2,
-      anObject: {
-        nestedValue: {
-          key: 'Woah this is nested!'
-        }
-      }
+    const elem = document.querySelector('.tabs');
+    const options = {
     };
+    M.Tabs.init(elem, options);
 
-    this.warehouse.set('test', testObject);
+    // const testObject: any = {
+    //   anArray: [
+    //     'first string',
+    //     'another string',
+    //     'and even one more'
+    //   ],
+    //   aNumber: 2,
+    //   anObject: {
+    //     nestedValue: {
+    //       key: 'Woah this is nested!'
+    //     }
+    //   }
+    // };
 
-    this.warehouse.get('test').subscribe(data => {
-      console.log('data');
-      console.log(data);
+    // this.warehouse.set('test', testObject);
 
-    });
+    // this.warehouse.get('test').subscribe(data => {
+    //    console.log('data');
+    //    console.log(data);
+    //  });
   }
 
-  addTask() {
-    this.tasks.splice(0, 0, new Task(this.newtask, this.maxETA));
-    this.warehouse.set('task' + this.tasks.length, new Task(this.newtask, this.maxETA));
-    // _.reverse(this.tasks);
+  confirm() {
+    this.warehouse.keys().subscribe(
+      data => {
+        this.offsvc.keys = data;
+        console.log(this.offsvc.keys)
+      },
+      error => console.log(error)
+    )
   }
-
-
 }

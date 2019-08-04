@@ -6,3 +6,6 @@ http://www.onlywebpro.com/2012/12/23/html5-storage-indexeddb/
 https://codecraft.tv/courses/angular/built-in-directives/ngstyle-and-ngclass/
 http://offlinefirst.org/
 https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API/Using_Service_Workers
+
+
+https://talixa.com/blog/angular-materializecss/

@@ -28,6 +28,8 @@
             "styles": [
               "src/styles.scss",
               "node_modules/materialize-css/dist/css/materialize.css"
+              // "node_modules/onsenui/css/onsenui.css",
+              // "node_modules/onsenui/css/onsen-css-components.css"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.js",

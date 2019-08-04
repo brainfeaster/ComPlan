@@ -1,8 +1,8 @@
 
 export class Task {
-    name: string;
-    eta: number;
-    binker_flag = false;
+    name: string; // name of the task
+    eta: number;  // time estimated to complete the task
+    binker_flag = false; 
     binker_switch = false;
     timer;
     blinker;

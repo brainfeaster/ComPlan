@@ -1,0 +1,78 @@
+.text-less {
+    background-color: red;
+}
+
+.text-zero {
+    background-color: yellow;
+}
+
+.text-more {
+    background-color: blue;
+}
+
+.text-white {
+    background-color: #D3D3D3;
+    border: 1px solid red;
+}
+
+.text-grey {
+    background-color: #FFFFFF;
+    border: none;
+}
+
+ul {
+    list-style: none;
+    padding: 0px;
+}
+
+li {
+    height: 50px;
+    margin-left: 25px;
+    font-size: 20px;
+    vertical-align: middle;
+}
+
+.complanButton {
+    width: 120px;
+}
+
+.progress-bar {
+    animation-duration: 70s;
+    animation-name: width;
+    background-image: linear-gradient(to right, #4cd964, #5ac8fa, #007aff, #34aadc, #5856d6, #ff2d55);
+    background-size: 24em 0.25em;
+    height: 2px;
+    position: relative;
+}
+
+.progress-shadow {
+    background-image: linear-gradient(to bottom, #eaecee, transparent);
+    height: 1px;
+    position: absolute;
+    top: 100%;
+    transform: skew(45deg);
+    transform-origin: 0 0;
+}
+
+.mainInput {
+    height: 18px;
+    font-size: 16px;
+}
+
+.progress {
+    height: 10px;
+    background-color: black;
+}
+
+@keyframes width {
+    0%,
+    100% {
+        transition-timing-function: cubic-bezier(1, 0, 0.65, 0.85);
+    }
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}

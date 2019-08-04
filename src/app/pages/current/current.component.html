@@ -1,0 +1,44 @@
+<ul>  
+  <li class=" row ">
+    <div class="col s9 ">
+      <input class="mainInput" [(ngModel)]="newtask">
+    </div>
+    <div class="col s3 ">
+      <a class="waves-effect waves-light btn-small left " (click)="addTask()">
+        <i class="fas fa-plus-square "></i> <span class="hide-on-small-only "><b> Add new </b></span></a>
+    </div>
+  </li>
+  <li class="row " *ngFor="let task of tasks | reversearray ">
+
+    <div class="col s8 " *ngIf="!task.binker_switch ">
+      <div class="row " style="margin:0px!important;">
+        <div class="col s12 progress progress-bar progress-bar ">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s6 mainInput">
+          {{task.name}}
+        </div>
+        <div class="col s6 mainInput">
+          <div class="hide-on-small-only ">{{task.eta | minsec}}</div>
+          <div class="hide-on-med-and-up ">{{task.eta | minsecmobile}}</div>
+        </div>
+      </div>
+    </div>
+    <div class="col s8 " *ngIf="task.binker_switch ">
+      <input class=" " [(ngModel)]="task.name ">
+    </div>
+    <div class="col s4 ">
+      <a class="waves-effect waves-light btn-small left " *ngIf="task.eta==0 ">
+        <i class="far fa-save"></i> <span class="hide-on-small-only "> <b>Save log</b> </span>
+      </a>
+    </div>
+  </li>
+  <!--<li *ngFor="let task of tasks " [ngClass]="{ 'text-white':task.binker_flag && task.binker_switch, 'text-grey':!task.binker_flag && task.binker_switch } ">
+      <div style="width:50% "> {{task.name}} in
+          <span [ngClass]="{ 'text-less':task.eta < 0 , 'text-zero':task.eta==0 , 'text-more':task.eta> 0 }"> {{task.eta | minsec}}
+      </span>
+</div>
+<a class="waves-effect waves-light btn-small"> <i class="fas fa-trash-alt" *ngIf="task.eta == 0"></i> Add new </a>
+</li>-->
+</ul>

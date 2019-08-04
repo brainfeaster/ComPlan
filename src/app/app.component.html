@@ -1,52 +1,19 @@
-<ul>
-    <li class="row">
-        <div class="col s12" style="font-size:16px;">
-            Welcome to ComPlan
-        </div>
-        <p class="col s12" style="font-size:12px;">
-            Special way to handle your multi-task.
-        </p>
-    </li>
-    <li class=" row ">
-        <div class="col s8 ">
-            <input class="mainInput" [(ngModel)]="newtask">
-        </div>
-        <div class="col s4 ">
-            <a class="waves-effect waves-light btn-small left " (click)="addTask()">
-                <i class="fas fa-plus-square "></i> <span class="hide-on-small-only ">Add new </span></a>
-        </div>
-    </li>
-    <li class="row " *ngFor="let task of tasks | reversearray ">
-
-        <div class="col s8 " *ngIf="!task.binker_switch ">
-            <div class="row " style="margin:0px!important;">
-                <div class="col s12 progress progress-bar progress-bar ">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col s6 mainInput">
-                    {{task.name}}
-                </div>
-                <div class="col s6 mainInput">
-                    <div class="hide-on-small-only ">{{task.eta | minsec}}</div>
-                    <div class="hide-on-med-and-up ">{{task.eta | minsecmobile}}</div>
-                </div>
-            </div>
-        </div>
-        <div class="col s8 " *ngIf="task.binker_switch ">
-            <input class=" " [(ngModel)]="task.name ">
-        </div>
-        <div class="col s4 ">
-            <a class="waves-effect waves-light btn-small left " *ngIf="task.eta==0 ">
-                <i class="far fa-save"></i> <span class="hide-on-small-only ">Save log</span>
-            </a>
-        </div>
-    </li>
-    <!--<li *ngFor="let task of tasks " [ngClass]="{ 'text-white':task.binker_flag && task.binker_switch, 'text-grey':!task.binker_flag && task.binker_switch } ">
-      <div style="width:50% "> {{task.name}} in
-          <span [ngClass]="{ 'text-less':task.eta < 0 , 'text-zero':task.eta==0 , 'text-more':task.eta> 0 }"> {{task.eta | minsec}}
-      </span>
+<div class="row">
+    <div class="col s12 center card-panel teal lighten-2">
+    <h5><b>Multi-tasking Simplified</b></h5>
+    </div>
+  <div class="col s12">
+    <ul class="tabs .tabs-fixed-width">
+      <li class="tab col s3"  ><a class="active" href="#test1">Current</a></li>
+      <li class="tab col s3" (click)="confirm()"><a  href="#test2">History</a></li>
+      <li class="tab col s3"><a href="#test4">Settings</a></li>
+    </ul>
+  </div>
+  <div id="test1" class="col s12">
+    <app-current class="center"></app-current>
+  </div>
+  <div id="test2" class="col s12">
+  <app-history></app-history>
 </div>
-<a class="waves-effect waves-light btn-small"> <i class="fas fa-trash-alt" *ngIf="task.eta == 0"></i> Add new </a>
-</li>-->
-</ul>
+  <div id="test4" class="col s12">Test 4</div>
+</div>

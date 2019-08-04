@@ -9,6 +9,11 @@ import { environment } from '../environments/environment';
 import { NgxWarehouseModule, WarehouseConfig, DRIVER_TYPE } from 'ngx-warehouse';
 import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core/core.module';
+import { CurrentComponent } from './pages/current/current.component';
+import { HistoryComponent } from './pages/history/history.component';
+import { SettingsComponent } from './pages/settings/settings.component';
+import { TaskComponent } from './pages/task/task.component';
+
 
 const config: WarehouseConfig = {
  driver: DRIVER_TYPE.INDEXEDDB,
@@ -64,7 +69,11 @@ export class MinSecMobile implements PipeTransform {
     AppComponent,
     MinSec,
     MinSecMobile,
-    ReversePipe
+    ReversePipe,
+    CurrentComponent,
+    HistoryComponent,
+    SettingsComponent,
+    TaskComponent
   ],
   imports: [
     SharedModule.forRoot(),
