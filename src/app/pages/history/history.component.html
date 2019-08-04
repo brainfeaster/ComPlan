@@ -1,4 +1,16 @@
-<div style=""    (click)="refresh()">Refresh</div>
+<div class="row">
+        <div class="col s5">  </div>
+<a class=" col s2 waves-effect waves-light btn-small left " (click)="refresh()">
+        <i class="fas fa-plus-square "></i> <span class="hide-on-small-only "><b> Refresh</b></span></a>
+        </div>
+<b>
+       
+  <div class="row">
+    <div class="col s3"> Task Name </div>
+    <div class="col s4"> Log </div>
+  </div>
+</b>
 <p *ngFor="let i of keys">
-<app-task [taskname]="i"></app-task>
+
+  <app-task [taskname]="i"></app-task>
 </p>

@@ -10,7 +10,7 @@
   </li>
   <li class="row " *ngFor="let task of tasks | reversearray ">
 
-    <div class="col s8 " *ngIf="!task.binker_switch ">
+    <div class="col s9 " *ngIf="!task.binker_switch ">
       <div class="row " style="margin:0px!important;">
         <div class="col s12 progress progress-bar progress-bar ">
         </div>
@@ -25,12 +25,13 @@
         </div>
       </div>
     </div>
-    <div class="col s8 " *ngIf="task.binker_switch ">
-      <input class=" " [(ngModel)]="task.name ">
+    <div class="col s9 " *ngIf="task.binker_switch ">
+        Name: <b>{{task.name}}</b>   <br/>
+      <input class=" " [(ngModel)]="task.log">
     </div>
-    <div class="col s4 ">
-      <a class="waves-effect waves-light btn-small left " *ngIf="task.eta==0 ">
-        <i class="far fa-save"></i> <span class="hide-on-small-only "> <b>Save log</b> </span>
+    <div class="col s3 ">
+      <a class="waves-effect waves-light btn-small left " *ngIf="task.eta==0 "  (click)="addLog(task)">
+        <i class="far fa-save"></i> <span class="hide-on-small-only " > <b> Save log</b> </span>
       </a>
     </div>
   </li>
